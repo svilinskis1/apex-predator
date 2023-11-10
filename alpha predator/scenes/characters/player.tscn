@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bp3df403sii58"]
+
+[ext_resource type="Script" path="res://scenes/characters/player.gd" id="1_obf87"]
+[ext_resource type="Texture2D" uid="uid://bqk7c0xbv0ure" path="res://assets/sprites/white circle.png" id="2_wfn37"]
+[ext_resource type="Texture2D" uid="uid://hvwjqw04sne" path="res://assets/sprites/anglerfish.png" id="2_wjswy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8i2n7"]
+size = Vector2(28, 18)
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_obf87")
+
+[node name="EatShape" type="CollisionShape2D" parent="."]
+position = Vector2(8, 3)
+shape = SubResource("RectangleShape2D_8i2n7")
+
+[node name="Anglerfish" type="Sprite2D" parent="."]
+light_mask = 0
+z_index = 2
+use_parent_material = true
+scale = Vector2(0.453125, 0.453125)
+texture = ExtResource("2_wjswy")
+
+[node name="Light" type="Sprite2D" parent="Anglerfish"]
+show_behind_parent = true
+position = Vector2(44.1379, -26.4828)
+scale = Vector2(5.66749, 5.66749)
+texture = ExtResource("2_wfn37")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://caoissth78lkl"]
+
+[ext_resource type="Texture2D" uid="uid://d4lfylx1pb7em" path="res://assets/sprites/fish.png" id="1_iinqb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_875q5"]
+size = Vector2(13, 6)
+
+[node name="prey" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_iinqb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_875q5")
