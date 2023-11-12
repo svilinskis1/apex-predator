@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch5xsx4gqrefi"]
+[gd_scene load_steps=7 format=3 uid="uid://ch5xsx4gqrefi"]
 
 [ext_resource type="PackedScene" uid="uid://caoissth78lkl" path="res://scenes/characters/prey.tscn" id="2_pwfgo"]
 [ext_resource type="Shader" path="res://assets/shaders/1bit.gdshader" id="3_jwdda"]
+[ext_resource type="Texture2D" uid="uid://c6o4snw81d8e2" path="res://assets/sprites/bubble.png" id="4_fbsgm"]
 [ext_resource type="PackedScene" uid="uid://bp3df403sii58" path="res://scenes/characters/player.tscn" id="4_vcnxr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ue2rd"]
@@ -9,40 +10,59 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j4lb7"]
 shader = ExtResource("3_jwdda")
 
-[node name="Node2D" type="Node2D"]
+[node name="main" type="Node2D"]
 material = SubResource("ShaderMaterial_ue2rd")
 
-[node name="Control" type="Control" parent="."]
+[node name="player" parent="." instance=ExtResource("4_vcnxr")]
+use_parent_material = true
+position = Vector2(120, 80)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+
+[node name="Control" type="Control" parent="player/Camera2D"]
+z_index = -1
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -120.0
+offset_top = -80.0
+offset_right = -80.0
+offset_bottom = -40.0
 
-[node name="blue" type="ColorRect" parent="Control"]
+[node name="blue" type="ColorRect" parent="player/Camera2D/Control"]
 z_index = 6
 layout_mode = 0
-offset_right = 240.0
-offset_bottom = 160.0
+offset_left = -120.0
+offset_top = -80.0
+offset_right = 360.0
+offset_bottom = 240.0
 color = Color(0.0431373, 0.168627, 0.368627, 0.560784)
 
-[node name="shader" type="ColorRect" parent="Control"]
+[node name="shader" type="ColorRect" parent="player/Camera2D/Control"]
 z_index = 5
 material = SubResource("ShaderMaterial_j4lb7")
 layout_mode = 0
-offset_right = 240.0
-offset_bottom = 160.0
+offset_left = -120.0
+offset_top = -80.0
+offset_right = 360.0
+offset_bottom = 240.0
 
-[node name="bg" type="ColorRect" parent="Control"]
+[node name="bg" type="ColorRect" parent="player/Camera2D/Control"]
 z_index = -1
 use_parent_material = true
 layout_mode = 0
-offset_right = 240.0
-offset_bottom = 160.0
+offset_left = -120.0
+offset_top = -80.0
+offset_right = 360.0
+offset_bottom = 240.0
 color = Color(0, 0, 0, 1)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("4_vcnxr")]
-use_parent_material = true
-position = Vector2(80, 57)
+[node name="Bubble" type="Sprite2D" parent="."]
+position = Vector2(122, 79)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_fbsgm")
 
-[node name="CharacterBody2D2" parent="." instance=ExtResource("2_pwfgo")]
-position = Vector2(112, 111)
+[node name="prey2" parent="." instance=ExtResource("2_pwfgo")]
+position = Vector2(214, 45)
+
+[node name="prey" parent="." instance=ExtResource("2_pwfgo")]
+position = Vector2(27, 114)

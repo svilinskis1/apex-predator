@@ -1,28 +1,56 @@
-[gd_scene load_steps=5 format=3 uid="uid://bp3df403sii58"]
+[gd_scene load_steps=8 format=3 uid="uid://bp3df403sii58"]
 
-[ext_resource type="Script" path="res://scenes/characters/player.gd" id="1_obf87"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_lbji8"]
 [ext_resource type="Texture2D" uid="uid://bqk7c0xbv0ure" path="res://assets/sprites/white circle.png" id="2_wfn37"]
 [ext_resource type="Texture2D" uid="uid://hvwjqw04sne" path="res://assets/sprites/anglerfish.png" id="2_wjswy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8i2n7"]
-size = Vector2(28, 18)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wa1yp"]
+size = Vector2(32, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6l03t"]
+size = Vector2(2.72577, 3.11517)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hg5as"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wsr1x"]
+radius = 26.0
 
 [node name="player" type="CharacterBody2D"]
-script = ExtResource("1_obf87")
+script = ExtResource("1_lbji8")
 
-[node name="EatShape" type="CollisionShape2D" parent="."]
-position = Vector2(8, 3)
-shape = SubResource("RectangleShape2D_8i2n7")
+[node name="FishShape" type="CollisionShape2D" parent="."]
+position = Vector2(7, 2)
+shape = SubResource("RectangleShape2D_wa1yp")
+
+[node name="LightShape" type="CollisionShape2D" parent="."]
+position = Vector2(18.5, -10)
+scale = Vector2(2.56808, 2.56808)
+shape = SubResource("RectangleShape2D_6l03t")
+
+[node name="EatArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EatArea"]
+position = Vector2(14, 2)
+shape = SubResource("CircleShape2D_hg5as")
+
+[node name="LightArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightArea"]
+position = Vector2(20, -11)
+shape = SubResource("CircleShape2D_wsr1x")
+
+[node name="Light" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_index = -1
+position = Vector2(21, -11)
+scale = Vector2(4.07401, 4.07401)
+texture = ExtResource("2_wfn37")
 
 [node name="Anglerfish" type="Sprite2D" parent="."]
 light_mask = 0
 z_index = 2
 use_parent_material = true
-scale = Vector2(0.453125, 0.453125)
+position = Vector2(6.82813, 0)
+scale = Vector2(0.316563, 0.453125)
 texture = ExtResource("2_wjswy")
-
-[node name="Light" type="Sprite2D" parent="Anglerfish"]
-show_behind_parent = true
-position = Vector2(44.1379, -26.4828)
-scale = Vector2(5.66749, 5.66749)
-texture = ExtResource("2_wfn37")
