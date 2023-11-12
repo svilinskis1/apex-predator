@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var speed = 0
-const max_speed = 50
+const max_speed = 40
 const acceleration = 100
 var fleeing = false
 var player_position

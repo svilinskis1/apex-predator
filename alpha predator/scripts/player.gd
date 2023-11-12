@@ -31,11 +31,6 @@ func flip_sprite():
 		flipped = false
 		
 	$Anglerfish.set_flip_v(flipped)
-	
-	if flipped:	
-		$Light.offset.y = 8
-	else:
-		$Light.offset.y =  0
 
 func _physics_process(delta):
 	input = get_input()
@@ -55,7 +50,7 @@ func _physics_process(delta):
 		else:
 			rotation_speed = 0
 	else:
-		rotation_speed = 2
+		rotation_speed = 3
 	
 	rotation += rotation_direction * rotation_speed * delta
 		
