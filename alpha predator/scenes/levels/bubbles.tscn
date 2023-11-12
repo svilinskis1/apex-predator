@@ -1,5 +1,49 @@
-[gd_scene format=3 uid="uid://i4mrdcgok8ht"]
+[gd_scene load_steps=5 format=3 uid="uid://i4mrdcgok8ht"]
+
+[ext_resource type="Shader" path="res://assets/shaders/bubbles.gdshader" id="1_g78ui"]
+[ext_resource type="Script" path="res://scripts/bubbles.gd" id="1_x33is"]
+[ext_resource type="Texture2D" uid="uid://0cysg5v3e68a" path="res://assets/sprites/bubbles.png" id="3_vbl8h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rx00d"]
+shader = ExtResource("1_g78ui")
+shader_parameter/speed = null
 
 [node name="bubbles" type="Node2D"]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_x33is")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="bubbles1" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_rx00d")
+offset_right = 260.0
+offset_bottom = 360.0
+texture = ExtResource("3_vbl8h")
+metadata/_edit_use_anchors_ = true
+
+[node name="bubbles2" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_rx00d")
+offset_top = 344.0
+offset_right = 260.0
+offset_bottom = 704.0
+texture = ExtResource("3_vbl8h")
+metadata/_edit_use_anchors_ = true
+
+[node name="bubbles3" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_rx00d")
+offset_left = 251.0
+offset_right = 511.0
+offset_bottom = 360.0
+texture = ExtResource("3_vbl8h")
+metadata/_edit_use_anchors_ = true
+
+[node name="bubbles4" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_rx00d")
+offset_left = 251.0
+offset_top = 344.0
+offset_right = 511.0
+offset_bottom = 704.0
+texture = ExtResource("3_vbl8h")
+metadata/_edit_use_anchors_ = true

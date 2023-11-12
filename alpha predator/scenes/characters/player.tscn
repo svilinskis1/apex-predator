@@ -14,7 +14,7 @@ size = Vector2(4.67275, 5.45154)
 radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wsr1x"]
-radius = 26.0
+radius = 42.0476
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_lbji8")
@@ -40,7 +40,7 @@ shape = SubResource("CircleShape2D_wsr1x")
 show_behind_parent = true
 z_index = -1
 position = Vector2(5, -2)
-scale = Vector2(4.89415, 4.89415)
+scale = Vector2(4.5, 4.5)
 texture = ExtResource("2_wfn37")
 
 [node name="Anglerfish" type="Sprite2D" parent="."]

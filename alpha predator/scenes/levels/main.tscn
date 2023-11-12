@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://caoissth78lkl" path="res://scenes/characters/prey.tscn" id="2_pwfgo"]
 [ext_resource type="Shader" path="res://assets/shaders/1bit.gdshader" id="3_jwdda"]
-[ext_resource type="Texture2D" uid="uid://c6o4snw81d8e2" path="res://assets/sprites/bubble.png" id="4_fbsgm"]
+[ext_resource type="PackedScene" uid="uid://i4mrdcgok8ht" path="res://scenes/levels/bubbles.tscn" id="4_4c268"]
 [ext_resource type="PackedScene" uid="uid://bp3df403sii58" path="res://scenes/characters/player.tscn" id="4_vcnxr"]
 [ext_resource type="Texture2D" uid="uid://blrlw62x2llni" path="res://assets/sprites/tilemap2.png" id="5_w3h4r"]
 
@@ -125,19 +125,50 @@ offset_right = 360.0
 offset_bottom = 240.0
 color = Color(0, 0, 0, 1)
 
-[node name="Bubble" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(122, 79)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("4_fbsgm")
+[node name="preys" type="Node" parent="."]
 
-[node name="prey2" parent="." instance=ExtResource("2_pwfgo")]
+[node name="prey" parent="preys" instance=ExtResource("2_pwfgo")]
+position = Vector2(27, 114)
+
+[node name="prey2" parent="preys" instance=ExtResource("2_pwfgo")]
 position = Vector2(214, 45)
 
-[node name="prey" parent="." instance=ExtResource("2_pwfgo")]
-position = Vector2(27, 114)
+[node name="prey3" parent="preys" instance=ExtResource("2_pwfgo")]
+position = Vector2(284, 122)
+
+[node name="prey4" parent="preys" instance=ExtResource("2_pwfgo")]
+position = Vector2(21, 225)
+
+[node name="prey5" parent="preys" instance=ExtResource("2_pwfgo")]
+position = Vector2(153, 259)
+
+[node name="prey6" parent="preys" instance=ExtResource("2_pwfgo")]
+position = Vector2(-92, 349)
+
+[node name="prey7" parent="preys" instance=ExtResource("2_pwfgo")]
+position = Vector2(11, 451)
+
+[node name="prey8" parent="preys" instance=ExtResource("2_pwfgo")]
+position = Vector2(-232, 589)
+
+[node name="prey9" parent="preys" instance=ExtResource("2_pwfgo")]
+position = Vector2(-105, 483)
+
+[node name="prey10" parent="preys" instance=ExtResource("2_pwfgo")]
+position = Vector2(-92, 670)
 
 [node name="background" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_teib5")
 format = 2
 layer_0/tile_data = PackedInt32Array(-262144, 65536, 0, -262139, 65536, 0, -262134, 65536, 0, -262129, 65536, 0, 65556, 196608, 2, 393241, 131072, 1, 720916, 196608, 1, 1048591, 196608, 1, 1376266, 196608, 1, 131067, 0, 1, 458747, 0, 1, 786427, 0, 1, 1114107, 262144, 2, 1441782, 262144, 2, 1769457, 0, 1, 1703946, 131072, 1, 2097137, 262144, 2, 2359296, 196608, 1, 2686976, 131072, 1, 2424812, 0, 1, 2752492, 0, 1, 3080177, 65536, 2, 3080182, 65536, 2, 3080187, 65536, 2, 3014656, 131072, 2, 3080172, 0, 2, 2097132, 0, 0, 2359301, 131072, 2, 2031626, 131072, 2, 1769452, 196608, 0, 1441772, 196608, 0, 1441777, 0, 0, 1114102, 0, 0, 1376271, 131072, 2, 1703941, 196608, 1, 1703951, 131072, 2, 1048596, 131072, 2, 1114097, 196608, 0, 786422, 196608, 0, 720921, 131072, 2, 65561, 131072, 0, -262124, 131072, 0, -196613, 0, 0, -262119, 196608, 0, 458742, 196608, 0, 393206, 196608, 0, 327670, 196608, 0, 262134, 196608, 0, 196598, 196608, 0, 131062, 196608, 0, 65526, 196608, 0, -10, 196608, 0, -65546, 196608, 0, -131082, 196608, 0, -196618, 196608, 0, -262154, 196608, 0, -327690, 196608, 0, -393226, 196608, 0, -524293, 196608, 0, -524298, 196608, 0, -589824, 196608, 0, -589819, 196608, 0, -589814, 196608, 0, -589809, 196608, 0, -589804, 196608, 0, -589799, 196608, 0, -589794, 196608, 0, -262114, 196608, 0, -196578, 196608, 0, -131042, 196608, 0, -65506, 196608, 0, 30, 196608, 0, 65566, 196608, 0, 131102, 196608, 0, 196638, 196608, 0, 262174, 196608, 0, 327710, 196608, 0, 393246, 196608, 0, 458782, 196608, 0, 524318, 196608, 0, 589854, 196608, 0, 655390, 196608, 0, 720926, 196608, 0, 1048601, 196608, 0, 1048602, 196608, 0, 1048603, 196608, 0, 1048604, 196608, 0, 1048605, 196608, 0, 1048606, 196608, 0, 1376276, 196608, 0, 1441812, 196608, 0, 1507348, 196608, 0, 1572884, 196608, 0, 1638420, 196608, 0, 1703956, 196608, 0, 1376281, 196608, 0, 2031621, 131072, 1, 2686981, 196608, 0, 2359306, 196608, 0, 3014661, 196608, 0, 3342341, 196608, 0, 3342340, 196608, 0, 3342339, 196608, 0, 3342338, 196608, 0, 3342337, 196608, 0, 3342336, 196608, 0, 3407871, 196608, 0, 3407870, 196608, 0, 3407869, 196608, 0, 3407868, 196608, 0, 3407867, 196608, 0, 3407866, 196608, 0, 3407865, 196608, 0, 3407864, 196608, 0, 3407863, 196608, 0, 3407862, 196608, 0, 3407861, 196608, 0, 3407860, 196608, 0, 3407859, 196608, 0, 3407858, 196608, 0, 3407857, 196608, 0, 3407856, 196608, 0, 3407855, 196608, 0, 3407854, 196608, 0, 3407853, 196608, 0, 3407852, 196608, 0, 3407847, 196608, 0, 3342311, 196608, 0, 3276775, 196608, 0, 3211239, 196608, 0, 3145703, 196608, 0, 3080167, 196608, 0, 3014631, 196608, 0, 2949095, 196608, 0, 2883559, 196608, 0, 2818023, 196608, 0, 2752487, 196608, 0, 2686951, 196608, 0, 2621415, 196608, 0, 2555879, 196608, 0, 2490343, 196608, 0, 2424807, 196608, 0, 2359271, 196608, 0, 2293735, 196608, 0, 2228199, 196608, 0, 2162663, 196608, 0, 2097127, 196608, 0, 2031591, 196608, 0, 1966055, 196608, 0, 1900519, 196608, 0, 1834983, 196608, 0)
+
+[node name="bubbleses" type="Node" parent="."]
+
+[node name="bubbles" parent="bubbleses" instance=ExtResource("4_4c268")]
+position = Vector2(-411, 237)
+
+[node name="bubbles2" parent="bubbleses" instance=ExtResource("4_4c268")]
+position = Vector2(-30, -277)
+
+[node name="bubbles3" parent="bubbleses" instance=ExtResource("4_4c268")]
+position = Vector2(-32, 242)
