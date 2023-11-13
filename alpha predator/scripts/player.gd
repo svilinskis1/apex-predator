@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var max_speed = 100
 var acceleration = 150
-var deceleration = 50
+var deceleration = 100
 
 var rotation_speed = 0
 var rotation_deceleration = 5
