@@ -1,10 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://caoissth78lkl"]
+[gd_scene load_steps=4 format=3 uid="uid://caoissth78lkl"]
 
 [ext_resource type="Script" path="res://scripts/prey.gd" id="1_3exid"]
 [ext_resource type="Texture2D" uid="uid://ccdgl2vtkcqvq" path="res://assets/sprites/fish2.png" id="2_ala6v"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6tjp"]
-size = Vector2(6, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_875q5"]
 size = Vector2(18.8322, 6)
@@ -17,10 +14,6 @@ modulate = Color(0.129412, 0.156863, 0.219608, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ala6v")
 flip_h = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6, 0)
-shape = SubResource("RectangleShape2D_i6tjp")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(0.95581, 1)

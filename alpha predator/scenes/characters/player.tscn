@@ -5,28 +5,31 @@
 [ext_resource type="Texture2D" uid="uid://d3bqdrq8oovaj" path="res://assets/sprites/anglerfish2.png" id="3_3uglr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wa1yp"]
-size = Vector2(29, 19)
+size = Vector2(26.5, 15.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6l03t"]
-size = Vector2(4.67275, 5.45154)
+[sub_resource type="CircleShape2D" id="CircleShape2D_o0j4c"]
+radius = 3.13941
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hg5as"]
 radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wsr1x"]
-radius = 53.0
+radius = 54.0093
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_lbji8")
 
 [node name="FishShape" type="CollisionShape2D" parent="."]
+position = Vector2(-1.25, 1.75)
 shape = SubResource("RectangleShape2D_wa1yp")
 
 [node name="LightShape" type="CollisionShape2D" parent="."]
+position = Vector2(9, -3)
 scale = Vector2(2.56808, 2.56808)
-shape = SubResource("RectangleShape2D_6l03t")
+shape = SubResource("CircleShape2D_o0j4c")
 
 [node name="EatArea" type="Area2D" parent="."]
+position = Vector2(5, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EatArea"]
 shape = SubResource("CircleShape2D_hg5as")

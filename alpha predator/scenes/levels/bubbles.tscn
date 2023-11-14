@@ -13,6 +13,7 @@ scale = Vector2(0.75, 0.75)
 script = ExtResource("1_x33is")
 
 [node name="bubbles1" type="TextureRect" parent="."]
+texture_filter = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_rx00d")
 offset_right = 260.0
@@ -32,18 +33,8 @@ metadata/_edit_use_anchors_ = true
 [node name="bubbles3" type="TextureRect" parent="."]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_rx00d")
-offset_left = 251.0
-offset_right = 511.0
-offset_bottom = 360.0
-texture = ExtResource("3_vbl8h")
-metadata/_edit_use_anchors_ = true
-
-[node name="bubbles4" type="TextureRect" parent="."]
-texture_repeat = 2
-material = SubResource("ShaderMaterial_rx00d")
-offset_left = 251.0
-offset_top = 344.0
-offset_right = 511.0
-offset_bottom = 704.0
+offset_top = 688.0
+offset_right = 260.0
+offset_bottom = 1048.0
 texture = ExtResource("3_vbl8h")
 metadata/_edit_use_anchors_ = true

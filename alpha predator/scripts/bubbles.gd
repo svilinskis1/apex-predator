@@ -7,7 +7,7 @@ var bottom
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	top = $bubbles1.position.y - $bubbles1.size.y
-	bottom = $bubbles4.position.y
+	bottom = $bubbles3.position.y
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
@@ -22,7 +22,3 @@ func _process(delta):
 	$bubbles3.position.y -= speed * delta
 	if $bubbles3.position.y <= top:
 		$bubbles3.position.y = bottom
-		
-	$bubbles4.position.y -= speed * delta
-	if $bubbles4.position.y <= top:
-		$bubbles4.position.y = bottom
