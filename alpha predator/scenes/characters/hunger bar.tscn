@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://csvtjq8rwrbg5"]
+[gd_scene load_steps=6 format=3 uid="uid://csvtjq8rwrbg5"]
 
 [ext_resource type="FontFile" uid="uid://0toypmqkg4f3" path="res://assets/fonts/EXEPixelPerfect.ttf" id="1_dgrg6"]
 [ext_resource type="Script" path="res://scripts/hungerbar.gd" id="2_asc1d"]
+[ext_resource type="AudioStream" uid="uid://g561bg5s2sj" path="res://assets/audio/eat.wav" id="3_621lk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fw1f6"]
 bg_color = Color(0.0235294, 0.0941176, 0.207843, 1)
@@ -40,6 +41,7 @@ script = ExtResource("2_asc1d")
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 modulate = Color(0.462745, 0.529412, 0.643137, 1)
 z_index = -1
+texture_filter = 1
 layout_mode = 0
 offset_left = 18.0
 offset_top = 6.0
@@ -52,3 +54,8 @@ bbcode_enabled = true
 text = "[b]HUNGER"
 scroll_active = false
 autowrap_mode = 1
+
+[node name="EatSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_621lk")
+volume_db = 1.0
+pitch_scale = 0.7

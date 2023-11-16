@@ -14,3 +14,4 @@ func _process(delta):
 
 func on_hunger_changed(hunger):
 	value += hunger
+	$"../EatSoundPlayer".play()
