@@ -1,4 +1,4 @@
 extends Node
 
-@onready var player = get_node("/root/main/player")
-var hunger = 0
+var player
+signal change_hunger(hunger)

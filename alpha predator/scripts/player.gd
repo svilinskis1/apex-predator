@@ -13,10 +13,9 @@ var hunger
 var flipped
 
 func _ready():
-	hunger = global.hunger
-	hunger = 0
 	input = 0
 	flipped = false
+	global.player = self
 	
 func get_input():
 	input = int(Input.is_action_pressed("forward"))

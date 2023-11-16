@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="alpha predator"
-run/main_scene="res://scenes/levels/main.tscn"
+run/main_scene="res://scenes/levels/menu.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://assets/sprites/icon.svg"
 
 [autoload]
 
 global="*res://scripts/global.gd"
+transition="*res://scenes/levels/transition.tscn"
 
 [display]
 

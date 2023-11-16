@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlk5r3dkuewlu"]
+
+[ext_resource type="FontFile" uid="uid://g6hms5uoa30e" path="res://assets/fonts/CutiveMono-Regular.ttf" id="1_q3fry"]
+[ext_resource type="Script" path="res://scripts/intro.gd" id="1_y0ldo"]
+[ext_resource type="Texture2D" uid="uid://bqk7c0xbv0ure" path="res://assets/sprites/white circle.png" id="3_h6i16"]
+[ext_resource type="PackedScene" uid="uid://i4mrdcgok8ht" path="res://scenes/levels/bubbles.tscn" id="4_0le5d"]
+
+[sub_resource type="Animation" id="Animation_m8t2t"]
+resource_name = "intro_text"
+length = 27.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6, 9, 12, 15, 18, 21, 24),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["You 
+are an 
+anglerfish,", "An 
+apex
+predator.", "You 
+have 
+everything,", "no 
+
+ predators.", "and 
+lots of 
+prey.
+", "Your only 
+worry is 
+starving.", "Use W 
+to move 
+forward,", "And use A 
+and D to 
+rotate.", "Press ESC if 
+you want to 
+quit."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 2.4, 3, 3.6, 5.4, 6, 6.6, 8.4, 9, 9.6, 11.4, 12, 12.6, 14.4, 15, 15.6, 17.4, 18, 18.6, 20.4, 21, 21.6, 23.4, 24, 24.6, 26.4, 27),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ws7ao"]
+_data = {
+"intro_text": SubResource("Animation_m8t2t")
+}
+
+[node name="intro" type="Node2D"]
+script = ExtResource("1_y0ldo")
+
+[node name="subtitle" type="Label" parent="."]
+z_index = 6
+offset_top = 52.0
+offset_right = 240.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_q3fry")
+theme_override_font_sizes/font_size = 14
+text = "You 
+are an 
+anglerfish,"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="subtitle"]
+libraries = {
+"": SubResource("AnimationLibrary_ws7ao")
+}
+
+[node name="Light" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_index = -1
+position = Vector2(120, 78)
+scale = Vector2(4.13095, 4.13095)
+texture = ExtResource("3_h6i16")
+
+[node name="bubbles" parent="." instance=ExtResource("4_0le5d")]
+z_index = 1
+position = Vector2(-7, -14)
+scale = Vector2(1, 1)

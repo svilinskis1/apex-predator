@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var food = 40
 var speed = 0
 const max_speed = 40
 const acceleration = 100
@@ -24,5 +25,5 @@ func on_shape_entered(area):
 	if area.name == "LightArea":
 		fleeing = true
 	if area.name == "EatArea":
-		global.hunger += 1
+		global.change_hunger.emit(food)
 		queue_free()

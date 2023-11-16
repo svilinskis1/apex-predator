@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://ceg1bodmnkvyx"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_ldmse"]
+[ext_resource type="FontFile" uid="uid://g6hms5uoa30e" path="res://assets/fonts/CutiveMono-Regular.ttf" id="2_fqy68"]
+[ext_resource type="Texture2D" uid="uid://bqk7c0xbv0ure" path="res://assets/sprites/white circle.png" id="2_pmtki"]
+[ext_resource type="PackedScene" uid="uid://i4mrdcgok8ht" path="res://scenes/levels/bubbles.tscn" id="3_38cs3"]
+
+[sub_resource type="GDScript" id="GDScript_awldt"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="Animation" id="Animation_lpw86"]
+resource_name = "blink"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p3uva"]
+_data = {
+"blink": SubResource("Animation_lpw86")
+}
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_ldmse")
+
+[node name="title" type="Label" parent="."]
+offset_top = 42.0
+offset_right = 240.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fqy68")
+theme_override_font_sizes/font_size = 22
+text = "apex
+predator"
+horizontal_alignment = 1
+
+[node name="subtitle" type="Label" parent="."]
+offset_top = 99.0
+offset_right = 240.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fqy68")
+theme_override_font_sizes/font_size = 12
+text = "press enter"
+horizontal_alignment = 1
+script = SubResource("GDScript_awldt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="subtitle"]
+libraries = {
+"": SubResource("AnimationLibrary_p3uva")
+}
+
+[node name="Light" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_index = -1
+position = Vector2(120, 78)
+scale = Vector2(4.13095, 4.13095)
+texture = ExtResource("2_pmtki")
+
+[node name="bubbles" parent="." instance=ExtResource("3_38cs3")]
+z_index = 1
+position = Vector2(-7, -14)
+scale = Vector2(1, 1)
