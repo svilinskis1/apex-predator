@@ -22,22 +22,21 @@ tracks/0/keys = {
 are an 
 anglerfish,", "An 
 apex
-predator.", "You 
-have 
-everything,", "no 
-
- predators.", "and 
-lots of 
-prey.
+predator.", "In an 
+eat-or-be
+eaten world,", "you
+have
+everything.", "no predators,
+and lots 
+of prey.
 ", "Your only 
 worry is 
 starving.", "Use W 
 to move 
 forward,", "And use A 
 and D to 
-rotate.", "Press ESC 
-if you want 
-to quit."]
+rotate.", "
+now go."]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -61,7 +60,6 @@ _data = {
 script = ExtResource("1_y0ldo")
 
 [node name="subtitle" type="Label" parent="."]
-modulate = Color(1, 1, 1, 0)
 z_index = 6
 offset_top = 52.0
 offset_right = 240.0
@@ -71,9 +69,10 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("1_q3fry")
 theme_override_font_sizes/font_size = 14
-text = "Press ESC if 
-you want to 
-quit."
+text = "no predators,
+and lots 
+of prey.
+"
 horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="subtitle"]

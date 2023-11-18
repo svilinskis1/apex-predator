@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bp3df403sii58"]
+[gd_scene load_steps=9 format=3 uid="uid://bp3df403sii58"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lbji8"]
 [ext_resource type="Texture2D" uid="uid://bqk7c0xbv0ure" path="res://assets/sprites/white circle.png" id="2_wfn37"]
 [ext_resource type="Texture2D" uid="uid://d3bqdrq8oovaj" path="res://assets/sprites/anglerfish2.png" id="3_3uglr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wn8o"]
+size = Vector2(37, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wa1yp"]
 size = Vector2(26.5, 15.5)
@@ -18,6 +21,12 @@ radius = 54.0093
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_lbji8")
+
+[node name="FishArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FishArea"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_3wn8o")
 
 [node name="FishShape" type="CollisionShape2D" parent="."]
 position = Vector2(-1.25, 1.75)

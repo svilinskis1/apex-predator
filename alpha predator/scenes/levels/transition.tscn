@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dstrdscnuubqo"]
+[gd_scene load_steps=9 format=3 uid="uid://dstrdscnuubqo"]
 
 [ext_resource type="Script" path="res://scripts/transition.gd" id="1_irdp4"]
 [ext_resource type="Shader" path="res://assets/shaders/1bit.gdshader" id="2_38v3y"]
 [ext_resource type="AudioStream" uid="uid://d035t5xbw68u" path="res://assets/audio/underwater.mp3" id="3_w60pb"]
 [ext_resource type="AudioStream" uid="uid://cc8ajpq7ldpr0" path="res://assets/audio/whalesounds.mp3" id="4_di3yd"]
+[ext_resource type="PackedScene" uid="uid://csvtjq8rwrbg5" path="res://scenes/characters/hunger bar.tscn" id="5_5vau1"]
 
 [sub_resource type="Animation" id="Animation_bpgtc"]
 resource_name = "fade"
@@ -32,6 +33,13 @@ shader = ExtResource("2_38v3y")
 script = ExtResource("1_irdp4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HungerBar" parent="CanvasLayer" instance=ExtResource("5_5vau1")]
+visible = false
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 5.0
+offset_bottom = 3.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 libraries = {
@@ -71,14 +79,14 @@ offset_top = -80.0
 offset_right = 360.0
 offset_bottom = 240.0
 
-[node name="UnderwaterSoundPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_w60pb")
-volume_db = 8.0
-pitch_scale = 0.5
-autoplay = true
-
-[node name="WhaleSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="WhaleSoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_di3yd")
 volume_db = -5.0
 pitch_scale = 0.2
+autoplay = true
+
+[node name="UnderwaterSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_w60pb")
+volume_db = 8.0
+pitch_scale = 0.5
 autoplay = true
