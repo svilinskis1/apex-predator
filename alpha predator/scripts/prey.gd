@@ -1,3 +1,4 @@
+#controls the prey fish
 extends CharacterBody2D
 
 var food = 25
@@ -11,6 +12,8 @@ var target
 func _physics_process(delta):
 	if not fleeing:	
 		return	
+		
+	#run away from the player
 	player_position = global.player.position
 	target = (player_position - position).normalized()
 	
@@ -22,8 +25,10 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func on_shape_entered(area):
+	#when the player gets close they run away
 	if area.name == "LightArea":
 		fleeing = true
+	#if player catches them they get eaten
 	if area.name == "EatArea":
 		global.change_hunger.emit(food)
 		queue_free()

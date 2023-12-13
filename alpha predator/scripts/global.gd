@@ -1,4 +1,5 @@
+#global variables
 extends Node
 
-var player
-signal change_hunger(hunger)
+var player #the player
+signal change_hunger(hunger) #adds to the hunger bar

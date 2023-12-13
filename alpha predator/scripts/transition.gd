@@ -1,3 +1,4 @@
+#global script that does a scene transition
 extends Node
 
 func change_scene(target: String) -> void:
@@ -6,6 +7,7 @@ func change_scene(target: String) -> void:
 	get_tree().change_scene_to_file(target)
 	$CanvasLayer/AnimationPlayer.play_backwards('fade')
 	
+#utility methods
 func change_hunger_bar_visibility(visible):
 	$CanvasLayer/HungerBar.visible = visible
 	

@@ -1,3 +1,4 @@
+#script that controls the player
 extends CharacterBody2D
 
 var max_speed = 100
@@ -22,7 +23,8 @@ func get_input():
 	rotation_direction = Input.get_axis("left", "right")
 	
 	return input
-	
+
+#flip sprite while rotating
 func flip_sprite():
 	if rotation < -PI/2 or rotation > PI/2:
 		flipped = true
@@ -31,18 +33,22 @@ func flip_sprite():
 		
 	$Anglerfish.set_flip_v(flipped)
 
+#movement
 func _physics_process(delta):
 	input = get_input()
 	
+	#if nothing is pressed decelerate down then stop
 	if input == 0:
 		if velocity.length() > deceleration * delta:
 			velocity -= velocity.normalized() * (deceleration * delta)
 		else:
 			velocity = Vector2.ZERO
+	#otherwise accelerate up to max speed
 	else:
 		velocity += (transform.x * input * acceleration * delta)
 		velocity = velocity.limit_length(max_speed)
-		
+	
+	#rotation 
 	if rotation_direction == 0:
 		if rotation_speed > 0:
 			rotation_speed -= rotation_deceleration * delta * rotation_direction

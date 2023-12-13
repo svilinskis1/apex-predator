@@ -1,14 +1,11 @@
+#runs at the end of the game
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	#ending cutscene
 	await($"/root/transition/CanvasLayer/AnimationPlayer".animation_finished)
 	$EatSoundPlayer.play()
 	transition.stop_noise()
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
