@@ -7,7 +7,6 @@ func _ready():
 	global.change_hunger.connect(on_hunger_changed)
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if $"..".visible: #if the hunger bar is active
 		value -= drain_speed #then drain it
@@ -23,7 +22,7 @@ func _process(delta):
 	if not $"..".visible:
 		$"../AlarmSoundPlayer".playing = false
 
-#when you eat a fish the hunger bar goes up
+#increases the hunger bar by incoming value
 func on_hunger_changed(hunger):
 	value += hunger
 	$"../EatSoundPlayer".play()

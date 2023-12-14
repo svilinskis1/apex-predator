@@ -4,7 +4,6 @@ extends Node2D
 func _ready():
 	#activate hunger bar
 	transition.change_hunger_bar_visibility(true)
-	pass # Replace with function body.
 
 func _process(_delta):
 	pass

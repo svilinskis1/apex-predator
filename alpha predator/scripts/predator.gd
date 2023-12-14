@@ -8,8 +8,7 @@ func _process(_delta):
 	pass
 
 func _on_trigger_area_entered(area_rid, area, area_shape_index, local_shape_index):
-	#when the player enters the area the scary guy
-	#appears and eats them
+	#when the player enters its area make it appear
 	if area.name == "FishArea":
 		global.player.max_speed = 40
 		$AnimationPlayer.play("appear")
